@@ -34,7 +34,7 @@ app.get("/gift", function (req, res){
 })
 */
 app.post("/create-item", (req, res) =>{
-    console.log(req);
+    console.log(req);s
     res.json({test: "success"});
     // TODO: code with db here
 
