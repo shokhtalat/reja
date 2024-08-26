@@ -1,17 +1,35 @@
+// C-TASK: 
+
+// Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
+// MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
+
+
+
+function checkContent(word1, word2){
+    if(word1.length != word2.length) return false;
+    
+    let sortedWord1 = word1.split('').sort().join('');
+    let sortedWord2 = word2.split('').sort().join('');
+
+    return sortedWord1 === sortedWord2;
+};
+
+console.log(checkContent("mitgroup", "gmtiprou"));
+
 // B-TASK: 
 
 // Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 // MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
-function numberCounter(word){
-    let count = 0;
-    for (let i = 0; i < word.length; i++) {
-        if(!isNaN(word[i])){
-            count++;
-        }
-    };
-    return count;
-}
-console.log(numberCounter("ad2a54y79wet0sfgb9"));
+// function numberCounter(word){
+//     let count = 0;
+//     for (let i = 0; i < word.length; i++) {
+//         if(!isNaN(word[i])){
+//             count++;
+//         }
+//     };
+//     return count;
+// }
+// console.log(numberCounter("ad2a54y79wet0sfgb9"));
 
 
 
