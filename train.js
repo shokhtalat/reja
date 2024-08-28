@@ -1,3 +1,43 @@
+// D-TASK: 
+
+// Shunday class tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+// MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+const moment = require("moment");
+const time = moment().format("HH:mm");
+class Shop {
+    constructor(non, lagmon, cola) {
+        this.non = non;
+        this.lagmon = lagmon;
+        this.cola = cola;
+    }
+    qoldiq() {
+        console.log(`hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lagmon, ${this.cola}ta cola bor.`);
+    }
+    sotish(item, pcs){
+        if(this[item] >= pcs) {
+            this[item] -= pcs;
+            console.log(`hozir ${time}da ${pcs}ta ${item} sotildi`);
+        } else {
+            console.log(`Yetarli ${item} mavjud emas`);
+        }
+    }
+    
+    qabul(item, pcs){
+        
+            this[item] += pcs;
+            console.log(`hozir ${time}da ${pcs}ta ${item} qabul qilindi`);
+       
+    }
+
+
+}
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish('non', 2);
+shop.qabul('cola', 15);
+shop.qoldiq();
+
+
 // C-TASK: 
 
 // Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
@@ -5,16 +45,16 @@
 
 
 
-function checkContent(word1, word2){
-    if(word1.length != word2.length) return false;
+// function checkContent(word1, word2){
+//     if(word1.length != word2.length) return false;
     
-    let sortedWord1 = word1.split('').sort().join('');
-    let sortedWord2 = word2.split('').sort().join('');
+//     let sortedWord1 = word1.split('').sort().join('');
+//     let sortedWord2 = word2.split('').sort().join('');
 
-    return sortedWord1 === sortedWord2;
-};
+//     return sortedWord1 === sortedWord2;
+// };
 
-console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("mitgroup", "gmtiprou"));
 
 // B-TASK: 
 
