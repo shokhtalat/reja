@@ -36,11 +36,24 @@ app.get("/gift", function (req, res){
     res.end(`<h1>Siz sovg'alar bo'limidasiz!</h1>`)
 })
 */
+
+app.post("/edit-item", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate(
+        { _id: new mongodb.ObjectId(data.id) }, 
+        { $set: {Reja: data.new_input }}, 
+        function(err, data){
+            res.json({state: "success"})
+    })
+    //res.end("done");
+});
+
 app.post("/create-item", (req, res) =>{
-    console.log("user entered /create-item");
+    console.log("user entered /create-item"); 
     // TODO: code with db here
     console.log(req.body);
-    const new_reja = req.body.reja;
+    const new_reja = req.body.Reja;
     db.collection("plans").insertOne({ Reja: new_reja }, (err, data) => {
         console.log(data.ops);
         res.json(data.ops[0]);
@@ -55,7 +68,13 @@ app.post("/delete-item", (req, res) => {
         res.json({state: "success"});
     });
 });
-
+app.post("/delete-all", (req, res) => {
+    if(req.body.delete_all) {
+        db.collection("plans").deleteMany(function() {
+            res.json({state: "hamma rejalar ochirildi"});
+        });
+    }
+});
 app.get('/author', (req, res) => {
     console.log("user entered /author ");
     
